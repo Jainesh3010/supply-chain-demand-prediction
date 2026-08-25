@@ -4,7 +4,7 @@ import joblib
 
 app = Flask(__name__)
 
-model = joblib.load("model/supply_chain_model.pkl")
+model = joblib.load("../model/supply_chain_model.pkl")
 
 features = [
     "Average_Daily_Sales",
