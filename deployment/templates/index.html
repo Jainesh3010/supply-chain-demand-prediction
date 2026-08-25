@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Demand Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Supply Chain Demand Prediction</h1>
+        <p class="subtitle">Machine Learning Powered Forecasting System</p>
+
+        <form method="POST">
+            <div class="grid">
+
+                <div class="form-group">
+                    <label>Average Daily Sales</label>
+                    <input type="number" step="any" name="Average_Daily_Sales" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Previous 30 Days Sales</label>
+                    <input type="number" step="any" name="Previous_30_Days_Sales" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Previous 7 Days Sales</label>
+                    <input type="number" step="any" name="Previous_7_Days_Sales" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Current Inventory</label>
+                    <input type="number" step="any" name="Current_Inventory" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Previous Day Sales</label>
+                    <input type="number" step="any" name="Previous_Day_Sales" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Discount Percentage</label>
+                    <input type="number" step="any" name="Discount_Percentage" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Promotion</label>
+                    <select name="Promotion" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Customer Return Rate</label>
+                    <input type="number" step="any" name="Customer_Return_Rate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Transportation Cost</label>
+                    <input type="number" step="any" name="Transportation_Cost" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Supplier Lead Time (Days)</label>
+                    <input type="number" step="any" name="Supplier_Lead_Time_Days" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Competitor Price</label>
+                    <input type="number" step="any" name="Competitor_Price" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Unit Price</label>
+                    <input type="number" step="any" name="Unit_Price" required>
+                </div>
+
+            </div>
+
+            <button type="submit">Predict Demand</button>
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result-box">
+            <p class="result-label">Predicted Demand</p>
+            <p class="result-value">{{ prediction }} units</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
